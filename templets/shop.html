@@ -98,7 +98,7 @@
 <!--End Search Icon-->
 <!--Desktop Logo-->
 <div class="logo col-5 col-sm-6 col-md-6 col-lg-8 text-center">
-<a href="index.html">
+<a href="{% url 'web:index' %}">
 <img alt="Belle Multipurpose Html Template" src="{% get_image_url None %}" title="Belle Multipurpose Html Template"/>
 </a>
 </div>
@@ -164,7 +164,7 @@
 <li class="lvl1 parent megamenu"><a href="{% url 'web:index' %}">Home <i class="anm anm-angle-down-l"></i></a>
 <li class="lvl1 parent megamenu"><a href="{% url 'web:shop' %}">Shop <i class="anm anm-angle-down-l"></i></a>
 <li class="lvl1 parent megamenu"><a href="{% url 'shop:purchesed_list' %}">Order List <i class="anm anm-angle-down-l"></i></a>
-<li class="lvl1 parent dropdown"><a href="#">About Us<i class="anm anm-angle-down-l"></i></a>
+<li class="lvl1 parent dropdown"><a href="{% url 'web:about' %}">About Us<i class="anm anm-angle-down-l"></i></a>
 <li class="lvl1 parent dropdown"><a href="{% url 'web:contact' %}">Contact <i class="anm anm-angle-down-l"></i></a>
 
 </ul>
@@ -195,7 +195,7 @@
   <div class="collection-header">
     <div class="collection-hero">
       <div class="collection-hero__image">
-        <img alt="Save Big On Popular Designs" class="" src="{% get_image_url 45 %}" title="Save Big On Popular Designs"/>
+        <img alt="Save Big On Popular Designs"  src="{% get_image_url 45 %}"  title="Save Big On Popular Designs"/>
       </div>
 
       <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width" id="h1_1"></h1></div>
@@ -584,75 +584,7 @@
       </div>
       <!--End Quick View popup-->
       <!-- Newsletter Popup -->
-      <div class="newsletter-wrap" id="popup-container">
-      <div id="popup-window">
-      <a class="btn closepopup"><i class="icon icon anm anm-times-l"></i></a>
-      <!-- Modal content-->
-      <div class="display-table splash-bg">
-      <div class="display-table-cell width40"><img alt="Join Our Mailing List" src="{% get_image_url 38 %}" title="Join Our Mailing List"/> </div>
-      <div class="display-table-cell width60 text-center">
-      <div class="newsletter-left">
-      <h2 id="h2_3"></h2>
-      <p id="p_10"></p>
-      <form method="post" action="{% url 'web:collect_email' %}">
-        {% csrf_token %}
-      <div class="input-group">
-      <input class="input-group__field newsletter__input" name="email" placeholder="Email address" required="" type="email" value=""/>
-      <span class="input-group__btn">
-      <button class="btn newsletter__submit" id="subscribeBtn" name="commit" type="submit"> <span class="newsletter__submit-text--large">Subscribe</span> </button>
-      </span> </div>
-      </form>
       
-      <ul class="list--inline site-footer__social-icons social-icons">
-        {% for socialmedia in social %}
-        {% if socialmedia.social_media.name == "Facebook" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-facebook"></i></a></li>
-        {% elif socialmedia.social_media.name == "Instagram" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-instagram"></i></a></li>
-        {% elif socialmedia.social_media.name == "Twitter" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-twitter"></i></a></li>
-        {% elif socialmedia.social_media.name == "LinkedIn" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-linkedin"></i></a></li>
-        {% elif socialmedia.social_media.name == "Snapchat" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-snapchat"></i></a></li>
-        {% elif socialmedia.social_media.name == "Pinterest" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-pinterest"></i></a></li>
-        {% elif socialmedia.social_media.name == "Reddit" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-reddit"></i></a></li>
-        {% elif socialmedia.social_media.name == "TikTok" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-tiktok"></i></a></li>
-        {% elif socialmedia.social_media.name == "YouTube" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-youtube"></i></a></li>
-        {% elif socialmedia.social_media.name == "WhatsApp" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-whatsapp"></i></a></li>
-        {% elif socialmedia.social_media.name == "WeChat" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-weixin"></i></a></li>
-        {% elif socialmedia.social_media.name == "Tumblr" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-tumblr"></i></a></li>
-        {% elif socialmedia.social_media.name == "Twitch" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-twitch"></i></a></li>
-        {% elif socialmedia.social_media.name == "Telegram" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-telegram"></i></a></li>
-        {% elif socialmedia.social_media.name == "Discord" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-discord"></i></a></li>
-        {% elif socialmedia.social_media.name == "Clubhouse" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-houzz"></i></a></li>
-        {% elif socialmedia.social_media.name == "Viber" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-viber"></i></a></li>
-        {% elif socialmedia.social_media.name == "LINE" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-line"></i></a></li>
-        {% elif socialmedia.social_media.name == "QQ" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-qq"></i></a></li>
-        {% elif socialmedia.social_media.name == "Sina Weibo" %}
-          <li><a class="social-icons__link" href="{{ socialmedia.link }}"><i class="fab fa-weibo"></i></a></li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
       <!-- End Newsletter Popup -->
       <!-- Including Jquery -->
       <script src="{% static 'assets/js/vendor/jquery-3.3.1.min.js' %}"></script>
@@ -666,51 +598,7 @@
       <script src="{% static 'assets/js/lazysizes.js' %}"></script>
       <script src="{% static 'assets/js/main.js' %}"></script>
       <!--For Newsletter Popup-->
-      <script>
-          jQuery(document).ready(function(){  
-            jQuery('.closepopup').on('click', function () {
-              jQuery('#popup-container').fadeOut();
-              jQuery('#modalOverly').fadeOut();
-            });
-            
-            var visits = jQuery.cookie('visits') || 0;
-            visits++;
-            jQuery.cookie('visits', visits, { expires: 1, path: '/' });
-            console.debug(jQuery.cookie('visits')); 
-            if ( jQuery.cookie('visits') > 1 ) {
-            jQuery('#modalOverly').hide();
-            jQuery('#popup-container').hide();
-            } else {
-              var pageHeight = jQuery(document).height();
-              jQuery('<div id="modalOverly"></div>').insertBefore('body');
-              jQuery('#modalOverly').css("height", pageHeight);
-              jQuery('#popup-container').show();
-            }
-            if (jQuery.cookie('noShowWelcome')) { jQuery('#popup-container').hide(); jQuery('#active-popup').hide(); }
-          }); 
-          
-          jQuery(document).mouseup(function(e){
-            var container = jQuery('#popup-container');
-            if( !container.is(e.target)&& container.has(e.target).length === 0)
-            {
-            container.fadeOut();
-            jQuery('#modalOverly').fadeIn(200);
-            jQuery('#modalOverly').hide();
-            }
-          });
-          
-          /*--------------------------------------
-            Promotion / Notification Cookie Bar 
-            -------------------------------------- */
-            if(Cookies.get('promotion') != 'true') {   
-             $(".notification-bar").show();         
-            }
-            $(".close-announcement").on('click',function() {
-            $(".notification-bar").slideUp();  
-            Cookies.set('promotion', 'true', { expires: 1});  
-            return false;
-            });
-        </script>
+      
       <!--End For Newsletter Popup-->
       </div>
       <script src="{% static 'webfunction.js' %}"></script><script>
